@@ -1,0 +1,26 @@
+/* Custom scrollbar for the terminal */
+.terminal-container {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgba(121, 121, 121, 0.4) transparent; /* For Firefox */
+}
+
+.terminal-container .xterm-viewport::-webkit-scrollbar {
+  width: 10px;
+}
+
+.terminal-container .xterm-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-container .xterm-viewport::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0); /* Invisible by default */
+  transition: background 0.2s ease-in-out; /* Consistent fade in/out speed */
+}
+
+.terminal-container:hover .xterm-viewport::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0.4); /* Visible on hover */
+}
+
+.terminal-container:hover .xterm-viewport::-webkit-scrollbar-thumb:hover {
+  background: rgba(121, 121, 121, 0.7); /* Darker on thumb hover */
+}

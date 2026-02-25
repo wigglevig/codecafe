@@ -1,0 +1,412 @@
+/* Scoped CSS for WebViewPanel component */
+#web-view-content * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#web-view-content .clear:before,
+#web-view-content .clear:after {
+  content: " ";
+  display: table;
+}
+
+#web-view-content .clear:after {
+  clear: both;
+}
+
+/* #web-view-content .clear {
+  zoom: 1;
+} */
+
+#web-view-content .none {
+  display: none;
+}
+
+#web-view-content :focus,
+#web-view-content :active {
+  outline: 0;
+}
+
+#web-view-content a {
+  text-decoration: none;
+}
+
+#web-view-content li {
+  list-style: none;
+}
+
+/* main - Scoped body styles to the container */
+#web-view-content {
+  font: normal 12px/1.3 Arial, sans-serif;
+  color: #d1ccc6;
+  background: transparent;
+  padding-top: 2px;
+}
+
+#web-view-content #browser {
+  /* margin-top: -2px; */ /* Remove this line */
+  /* background: transparent; */ /* Remove or comment out */
+  /* background-color: rgba(255, 255, 255, 0.05); */ /* Light, semi-transparent background */
+  /* background-color: rgba(255, 255, 255, 0.15); */ /* Lighter, semi-transparent background - REMOVE */
+  /* backdrop-filter: blur(4px); */ /* Apply blur to the background - REMOVE */
+  background: transparent; /* Restore this */
+  /* border-bottom: 1px solid #3b3632; */
+  border-bottom: 1px solid #57534e; /* Lighter border */
+}
+
+/* tabs */
+#web-view-content .tabs {
+  float: left;
+  margin-left: 20px;
+  height: 31px;
+}
+
+#web-view-content .tabs li,
+#web-view-content .tabs li:before {
+  cursor: default;
+  z-index: 1;
+  position: relative;
+  /* border: 1px solid #3b3632; */
+  border: 1px solid #57534e; /* Lighter border */
+  border-bottom: 0;
+  transform: skewX(25deg);
+  float: left;
+  height: 29px;
+  margin: 6px 0 0 12px;
+  padding: 0 15px;
+  width: 160px;
+  border-radius: 5px 5px 0 0;
+  box-shadow: inset -1px 1px 0 rgba(255, 255, 255, 0.1),
+    0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #6e675f;
+}
+
+#web-view-content .tabs li:nth-child(1) {
+  z-index: 7;
+}
+#web-view-content .tabs li:nth-child(2) {
+  z-index: 6;
+}
+#web-view-content .tabs li:nth-child(3) {
+  z-index: 5;
+}
+
+#web-view-content .tabs li.active,
+#web-view-content .tabs li.active:before {
+  z-index: 9 !important;
+  background: #4a443f; /* Match panel background for active tab */
+  height: 26px; /* Reduced active tab height */
+  margin-bottom: -1px; /* Restore negative margin */
+  /* border-color: #3b3632; */ /* Dark border to match others */
+  border-color: #57534e; /* Lighter border */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15); /* Subtler lighter inner top shadow */
+}
+
+#web-view-content .tabs li:before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: -1px;
+  transform: skewX(140deg);
+  border-right: 0;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  border-radius: 5px 0 0 0;
+  box-shadow: inset 1px 1px 0 rgba(192, 42, 42, 0.1); /* Match tab shadow */
+}
+
+#web-view-content .tabs li img {
+  z-index: 9;
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  transform: skewX(-25deg);
+  border-radius: 3px;
+}
+
+#web-view-content .tabs li a.close {
+  z-index: 10; /* Ensure close is clickable */
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  font-size: 18px;
+  color: #a19a92; /* Lighter stone for close icon */
+  width: 15px;
+  height: 15px;
+  line-height: 16px;
+  text-align: center;
+  transform: skewX(-25deg);
+  border-radius: 100%;
+}
+
+#web-view-content .tabs li a.close:hover {
+  color: #fff;
+  background-color: #8c6d5e;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#web-view-content .tabs li a.close:active {
+  background-color: #75584a;
+}
+
+#web-view-content .tabs li span {
+  width: 98%;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #b6afa9;
+}
+
+#web-view-content .tabs li.active span {
+  color: #e0dcd8;
+}
+
+/* Fade effect - may need adjustment */
+#web-view-content .tabs li span:after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  top: 1px;
+  background: linear-gradient(
+    to right,
+    hsla(33, 7%, 40%, 0) 0%,
+    hsla(33, 7%, 40%, 1) 77%,
+    hsla(33, 7%, 40%, 1) 100%
+  );
+}
+
+#web-view-content .tabs li.active span:after {
+  background: linear-gradient(
+    to right,
+    hsla(26, 5%, 27%, 0) 0%,
+    hsla(26, 5%, 27%, 1) 77%,
+    hsla(26, 5%, 27%, 1) 100%
+  );
+}
+
+/* tab add */
+#web-view-content .add {
+  float: left;
+  margin: 12px 5px 8px;
+  width: 23px;
+  height: 16px;
+  background: #6e675f;
+  border-radius: 5px;
+  /* border: 1px solid #3b3632; */
+  border: 1px solid #57534e; /* Lighter border */
+  transform: skewX(25deg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 1px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+#web-view-content .add:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 1px rgba(0, 0, 0, 0.1);
+  background: #7a736c;
+}
+
+#web-view-content .add:active {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: #5c5650;
+}
+
+/* bar */
+#web-view-content .bar {
+  z-index: 3;
+  position: relative;
+  clear: both;
+  padding: 6px;
+  background: #4a443f;
+  /* border-top: 1px solid #3b3632; */
+  border-top: 1px solid #57534e; /* Lighter border */
+}
+
+#web-view-content .bar ul {
+  float: left;
+}
+
+#web-view-content .bar > ul > li {
+  position: relative;
+  float: left;
+  margin: 0 2px;
+}
+
+#web-view-content .bar > ul > li > a,
+#web-view-content .bar ul li label {
+  display: block;
+  width: 26px;
+  height: 26px;
+  color: #444;
+  text-align: center;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #4a443f;
+  cursor: pointer;
+  color: #b6afa9; /* Light stone icon color */
+}
+
+#web-view-content .bar > ul > li > a:hover,
+#web-view-content .bar ul li label:hover {
+  border: 1px solid #6e675f;
+  background: #5c5650;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#web-view-content .bar > ul > li > a:active,
+#web-view-content .bar ul li label:active,
+#web-view-content .bar ul.drop li input:checked ~ label {
+  /* border: 1px solid #3b3632; */
+  border: 1px solid #57534e; /* Lighter border */
+  background: #6e675f;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#web-view-content .bar .favorite {
+  z-index: 5;
+  position: absolute;
+  right: 48px;
+  top: 8px;
+  width: 26px;
+  height: 26px;
+  color: #a19a92;
+  text-align: center;
+  line-height: 26px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#web-view-content .bar input:checked ~ .favorite {
+  color: #e6cb83;
+  text-shadow: 0 0 5px rgba(230, 203, 131, 0.5);
+}
+
+/* address bar */
+#web-view-content .bar input[type="text"] {
+  display: block;
+  float: left;
+  left: 100px;
+  right: 40px;
+  position: absolute;
+  margin-left: 10px;
+  /* border: 1px solid #3b3632; */
+  border: 1px solid #57534e; /* Lighter border */
+  height: 26px;
+  font-size: 13px;
+  line-height: 26px;
+  border-radius: 5px;
+  padding: 0 10px;
+  /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25); */ /* Temporarily remove */
+  background: #6e675f;
+  color: #e0dcd8;
+}
+
+#web-view-content .bar input[type="text"]::placeholder {
+  color: #a19a92;
+}
+
+/* Menu button specific styles */
+#web-view-content .bar .menu-button {
+  /* Base styles matching other buttons - color & border are already handled */
+  color: #b6afa9; /* Explicitly set color to match other icons */
+}
+
+#web-view-content .bar .menu-button:hover {
+  border: 1px solid #6e675f;
+  background: #5c5650;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#web-view-content .bar .menu-button:active {
+  border: 1px solid #57534e; /* Lighter border consistent with others */
+  background: #6e675f;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* menu .drop */
+#web-view-content .bar ul.drop {
+  float: right;
+}
+
+/* bookmarks */
+#web-view-content .bookmark {
+  position: relative;
+  z-index: 2;
+  clear: both;
+  background: #524c46;
+  /* border-bottom: 1px solid #3b3632; */
+  border-bottom: 1px solid #57534e; /* Lighter border */
+}
+
+#web-view-content .bookmark ul {
+  overflow: hidden;
+  margin: 0 5px;
+  height: 32px;
+}
+
+#web-view-content .bookmark ul li {
+  float: left;
+  margin: 0 0 5px;
+}
+
+#web-view-content .bookmark ul li a {
+  position: relative;
+  display: block;
+  max-width: 130px;
+  padding: 0 8px 0 28px;
+  height: 25px;
+  line-height: 25px;
+  background: #524c46;
+  border-radius: 5px;
+  border: 1px solid #524c46;
+  color: #c8c1ba;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: none;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+#web-view-content .bookmark ul li a:hover {
+  border: 1px solid #6e675f;
+  background: #615b55;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#web-view-content .bookmark ul li a:active {
+  /* border: 1px solid #3b3632; */
+  border: 1px solid #57534e; /* Lighter border */
+  background: #5c5650;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#web-view-content .bookmark ul li a img {
+  width: 16px;
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  border-radius: 3px;
+}
+
+/* page - iframe container */
+#web-view-content .page {
+  clear: both;
+  background: #7a736c;
+  overflow: hidden;
+}
+
+#web-view-content .bar > ul > li > a svg,
+#web-view-content .bar > ul > li > label svg {
+  display: block; /* Helps with alignment */
+  width: 18px;
+  height: 18px;
+  margin: 4px auto 0;
+  fill: currentColor;
+}

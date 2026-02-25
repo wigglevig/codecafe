@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "markotsymbaluk"
+    pull-request-branch-name:
+      separator: "-"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "dependabot"
+  - package-ecosystem: "maven"
+    directory: "/server"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "markotsymbaluk"
+    pull-request-branch-name:
+      separator: "-"
+    labels:
+      - "dependencies"
+      - "java"
+    commit-message:
+      prefix: "dependabot"
