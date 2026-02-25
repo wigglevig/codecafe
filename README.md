@@ -6,6 +6,8 @@
 
 A browser-based real-time code editor with multiuser collaboration powered by operational transformation (OT).
 
+This project is inspired by [mrktsm](https://github.com/mrktsm/codecafe).
+
 [Try CodeCafé Live](https://codecafe.app/)
 
 ![demo](https://github.com/user-attachments/assets/3f6875ac-58eb-4a57-8365-778e5a774304)
